@@ -480,7 +480,7 @@ export const models: Models = {
                 "Meta-Llama-3-2-3B-Instruct",
             [ModelClass.MEDIUM]:
                 settings.MEDIUM_AKASH_CHAT_API_MODEL ||
-                "Meta-Llama-3-3-70B-Instruct",
+                "Meta-Llama-3-1-8B-Instruct-FP8",
             [ModelClass.LARGE]:
                 settings.LARGE_AKASH_CHAT_API_MODEL ||
                 "Meta-Llama-3-1-405B-Instruct-FP8",

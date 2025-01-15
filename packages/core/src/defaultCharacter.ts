@@ -1,11 +1,12 @@
-import { Character, ModelProviderName } from "./types.ts";
+import { Character, Clients, ModelProviderName } from "./types.ts";
+import { codexPlugin } from "../../plugin-codex"
 
 export const defaultCharacter: Character = {
     name: "Eliza",
     username: "eliza",
     plugins: [],
-    clients: [],
-    modelProvider: ModelProviderName.LLAMALOCAL,
+    clients: [Clients.TELEGRAM],
+    modelProvider: ModelProviderName.AKASH_CHAT_API,
     settings: {
         secrets: {},
         voice: {

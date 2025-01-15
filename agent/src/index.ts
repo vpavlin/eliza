@@ -27,6 +27,7 @@ import {
 } from "@ai16z/eliza";
 import { zgPlugin } from "@ai16z/plugin-0g";
 import { bootstrapPlugin } from "@ai16z/plugin-bootstrap";
+import { codexPlugin } from "@ai16z/plugin-codex"
 import createGoatPlugin from "@ai16z/plugin-goat";
 // import { intifacePlugin } from "@ai16z/plugin-intiface";
 import { DirectClient } from "@ai16z/client-direct";
@@ -558,6 +559,7 @@ export async function createAgent(
             getSecret(character, "TON_PRIVATE_KEY") ? tonPlugin : null,
             getSecret(character, "SUI_PRIVATE_KEY") ? suiPlugin : null,
             getSecret(character, "STORY_PRIVATE_KEY") ? storyPlugin : null,
+            codexPlugin,
         ].filter(Boolean),
         providers: [],
         actions: [],
@@ -608,6 +610,8 @@ async function startAgent(
             cache,
             token
         );
+
+        elizaLogger.log(runtime.actions)
 
         // start services/plugins/process knowledge
         await runtime.initialize();

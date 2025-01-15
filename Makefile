@@ -57,3 +57,14 @@ clean:
 
 .PHONY: distclean
 distclean: clean
+
+container:
+	docker build --load -t elizaos/agent .
+
+
+DATA_DIR = data-test
+ENV_FILE = .env
+CHARACTER_FILE = characters/workshop.character.json
+
+run:
+	docker run -it --rm -v $(PWD)/$(ENV_FILE):/app/.env:ro -v $(PWD)/characters:/app/characters:ro -v $(PWD)/$(DATA_DIR):/app/agent/data --network=host  elizaos/agent pnpm start --characters=$(CHARACTER_FILE)

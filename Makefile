@@ -67,4 +67,5 @@ ENV_FILE = .env
 CHARACTER_FILE = characters/workshop.character.json
 
 run:
-	docker run -it --rm -v $(PWD)/agent:/app/agent -v $(PWD)/$(ENV_FILE):/app/.env:ro  -v $(PWD)/characters:/app/characters:ro -v $(PWD)/$(DATA_DIR):/app/agent/data --network=host  elizaos/agent pnpm start --characters=$(CHARACTER_FILE)
+	docker run -it --rm  -v $(PWD)/cache:/app/packages/core/cache -v $(PWD)/$(ENV_FILE):/app/.env:ro  -v $(PWD)/characters:/app/characters:ro -v $(PWD)/$(DATA_DIR):/app/agent/data --network=host  quay.io/vpavlin0/eliza:workshop pnpm start --characters=$(CHARACTER_FILE)
+#-v $(PWD)/agent:/app/agent
